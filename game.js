@@ -6,7 +6,7 @@
 // variáveis do jogo
 var canvas, ctx, ALTURA, LARGURA, qtFrames = 0, gameOver = false;
 
-function clique(e) {
+function pula(e) {
 	bloco.pula();
 }
 
@@ -28,7 +28,8 @@ function main() {
 	
 	ctx = canvas.getContext("2d");
 	document.body.appendChild(canvas);
-	document.addEventListener("mousedown", clique);
+	document.addEventListener("mousedown", pula);
+	document.addEventListener("keypress", (e) => e.keyCode == 32 ? pula(e) : null);
 	
 	// Música
 	var music = document.getElementById("audio-music");
