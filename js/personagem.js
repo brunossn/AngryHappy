@@ -38,12 +38,12 @@ class Personagem {
     Atualiza(alturaChao, game, frameAtual) {
         this._velocidade += this._gravidade;
         this._y += this._velocidade;
-        if (this._y + this._altura >= alturaChao) {
-            this._y = alturaChao - this._altura;
+        if (this._y < 0) {
             this._velocidade = 0;
+            this._y = 0;
         }
         // Verifica se perdeu
-        if (this._y < 0 || this._y + this._altura >= alturaChao) {
+        if (this._y + this._altura >= alturaChao) {
             game.Perdeu();
             return;
         }
