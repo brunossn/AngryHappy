@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "outDir": "js",
+        "target": "es2018"
+    },
+    "include": [
+        "ts/**/*"
+    ]
+}

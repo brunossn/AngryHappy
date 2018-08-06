@@ -1,0 +1,23 @@
+{
+  "name": "angryhappy",
+  "version": "1.0.0",
+  "description": "Um jogo simples em Javascript, ao estilo AngryBirds, documentado em português.",
+  "main": "game.js",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunossn/AngryHappy.git"
+  },
+  "author": "Bruno Soares Nepomuceno (@brunossn)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunossn/AngryHappy/issues"
+  },
+  "homepage": "https://github.com/brunossn/AngryHappy#readme"
+}
