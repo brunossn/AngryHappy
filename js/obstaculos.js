@@ -1,3 +1,4 @@
+"use strict";
 class Obstaculo {
     constructor(x, y, imagem, largura, altura, passou) {
         this.x = x;
@@ -18,6 +19,7 @@ class Obstaculos {
         this.total = 0; // obstaculos criados
         this.ultrapassados = 0;
         this.margemSeguranca = 35; // pixels permitidos de aproximacao
+        this.imagens = ["aspirador", "chuveiro", "pug", "betoneira"]; // deve ser o ID da imagem na index.html
         this.repeticaoInimigo = 6; // quantas vezes aparece cada objeto
         this.alturaObstaculos = 145;
         this.larguraObstaculos = 120;

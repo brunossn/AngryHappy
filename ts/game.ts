@@ -1,10 +1,10 @@
 class Game {
 
-	_personagem = new Personagem();
-	_chao = new Chao();
-	_fundo = new Fundo();
-	_obstaculos = new Obstaculos();
-	_placar = new Placar();
+	_personagem: Personagem;
+	_chao: Chao;
+	_fundo: Fundo;
+	_obstaculos: Obstaculos;
+	_placar: Placar;
 
 	_altura = window.innerHeight;
 	_largura = window.innerWidth; 
@@ -14,6 +14,12 @@ class Game {
 	_frameAtual = 0;
 
 	constructor() {
+
+		this._personagem = new Personagem();
+		this._chao = new Chao();
+		this._fundo = new Fundo(this._altura, this._largura);
+		this._obstaculos = new Obstaculos();
+		this._placar = new Placar();
 
 		if(this._largura > 600) {
 			this._altura = 600;
@@ -53,7 +59,7 @@ class Game {
 	private Atualiza() {
 		this._frameAtual++;
 		this._fundo.Atualiza();
-		this._personagem.AtualizaSprite(this._frameAtual);
+		this._personagem.Atualiza(this._chao._y, this, this._frameAtual);
 		this._obstaculos.Atualiza(this._largura, this._chao._y, this._personagem, this);
 	}
 

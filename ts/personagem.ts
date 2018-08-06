@@ -11,19 +11,24 @@ class Personagem {
 	
 	private _puloForcaInicial = 5;
 	private _puloForca = 5;
-	private _puloIncremento = 2; // a cada batida de asa, o pulo fica mais forte
+	private _puloIncremento = 2; // a cada batida de asa, o pulo fica mais forte (gato bate asa?)
 	private _puloDecremento: 0.1 // a cada frame, perde-se a força do pulo incremental
 
+	// Sprites
 	private _quadrosPorImagem = 5;
 	private _imagemAtual = 0;
 	private _totalImagens = 9;
+	private _spriteX = 0;
+	private _spriteY = 0;
+	private _spriteLargura = 256;
+	private _spriteAltura = 97;
 
 	public get X(): number { return this._x; }
 	public get Y(): number { return this._y; }
 	public get Altura(): number { return this._altura; }
 	public get Largura(): number { return this._largura; }
 
-	AtualizaSprite(frameAtual) {
+	AtualizaSprite(frameAtual: number) {
 
 		if(frameAtual % this._quadrosPorImagem == 0) {
 			if(this._imagemAtual == this._totalImagens - 1) {
@@ -33,11 +38,12 @@ class Personagem {
 				this._imagemAtual++;
 			}
 			
-			this._x = this._imagemAtual * this._largura;
+			this._spriteX = this._imagemAtual * this._spriteLargura;
 		}
 	}
 	
 	Atualiza(alturaChao: number, game: Game, frameAtual: number) {
+
 		this._velocidade += this._gravidade;
 		this._y += this._velocidade;
 		
@@ -62,12 +68,12 @@ class Personagem {
 		
 		// Atualiza imagem do personagem
 		this.AtualizaSprite(frameAtual);
-	};
+	}
 	
 	public Desenha(context: CanvasRenderingContext2D) {
 		var img = <HTMLImageElement>document.getElementById("cat");
-		context.drawImage(img, this._x, this._y, this._largura,
-			this._altura, this._x, this._y, this._largura, this._altura);
+		context.drawImage(img, this._spriteX, this._spriteY, this._spriteLargura,
+			this._spriteAltura, this._x, this._y, this._largura, this._altura);
 	}
 	
 	public Pula() {

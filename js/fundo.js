@@ -1,10 +1,13 @@
+"use strict";
 class Fundo {
-    constructor() {
+    constructor(altura, largura) {
         this._x = 0;
         this._y = 0;
         this._cor = "#0000FF";
         this._taxaAtualizacao = 1;
         this._frame = 0;
+        this._altura = altura;
+        this._largura = largura;
     }
     Atualiza() {
         // Reseta fundo

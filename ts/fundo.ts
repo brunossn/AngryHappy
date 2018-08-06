@@ -6,6 +6,11 @@ class Fundo {
 	_cor = "#0000FF";
 	_taxaAtualizacao = 1;
 	_frame = 0;
+
+	constructor(altura: number, largura: number) {
+		this._altura = altura;
+		this._largura = largura;
+	}
 	
 	Atualiza() {
 		

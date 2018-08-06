@@ -1,14 +1,15 @@
+"use strict";
 class Game {
     constructor() {
-        this._personagem = new Personagem();
-        this._chao = new Chao();
-        this._fundo = new Fundo();
-        this._obstaculos = new Obstaculos();
-        this._placar = new Placar();
         this._altura = window.innerHeight;
         this._largura = window.innerWidth;
         this._gameOver = false;
         this._frameAtual = 0;
+        this._personagem = new Personagem();
+        this._chao = new Chao();
+        this._fundo = new Fundo(this._altura, this._largura);
+        this._obstaculos = new Obstaculos();
+        this._placar = new Placar();
         if (this._largura > 600) {
             this._altura = 600;
             this._largura = 600;
@@ -39,7 +40,7 @@ class Game {
     Atualiza() {
         this._frameAtual++;
         this._fundo.Atualiza();
-        this._personagem.AtualizaSprite(this._frameAtual);
+        this._personagem.Atualiza(this._chao._y, this, this._frameAtual);
         this._obstaculos.Atualiza(this._largura, this._chao._y, this._personagem, this);
     }
     Desenha() {

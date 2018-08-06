@@ -1,3 +1,4 @@
+"use strict";
 class Placar {
     Desenha(context, obstaculos) {
         context.fillStyle = "#FFF";

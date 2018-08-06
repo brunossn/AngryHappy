@@ -1,3 +1,4 @@
+"use strict";
 class Personagem {
     constructor() {
         this._x = 40;
@@ -9,10 +10,15 @@ class Personagem {
         this._gravidade = 0.3;
         this._puloForcaInicial = 5;
         this._puloForca = 5;
-        this._puloIncremento = 2; // a cada batida de asa, o pulo fica mais forte
+        this._puloIncremento = 2; // a cada batida de asa, o pulo fica mais forte (gato bate asa?)
+        // Sprites
         this._quadrosPorImagem = 5;
         this._imagemAtual = 0;
         this._totalImagens = 9;
+        this._spriteX = 0;
+        this._spriteY = 0;
+        this._spriteLargura = 256;
+        this._spriteAltura = 97;
     }
     get X() { return this._x; }
     get Y() { return this._y; }
@@ -26,7 +32,7 @@ class Personagem {
             else {
                 this._imagemAtual++;
             }
-            this._x = this._imagemAtual * this._largura;
+            this._spriteX = this._imagemAtual * this._spriteLargura;
         }
     }
     Atualiza(alturaChao, game, frameAtual) {
@@ -51,10 +57,9 @@ class Personagem {
         // Atualiza imagem do personagem
         this.AtualizaSprite(frameAtual);
     }
-    ;
     Desenha(context) {
         var img = document.getElementById("cat");
-        context.drawImage(img, this._x, this._y, this._largura, this._altura, this._x, this._y, this._largura, this._altura);
+        context.drawImage(img, this._spriteX, this._spriteY, this._spriteLargura, this._spriteAltura, this._x, this._y, this._largura, this._altura);
     }
     Pula() {
         this._puloForca += this._puloIncremento;

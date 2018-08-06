@@ -1,3 +1,4 @@
+"use strict";
 class Chao {
     constructor() {
         this._y = 550;

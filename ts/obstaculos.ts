@@ -26,7 +26,7 @@ class Obstaculos {
 	total = 0; // obstaculos criados
 	ultrapassados = 0;
 	margemSeguranca = 35; // pixels permitidos de aproximacao
-	imagens: ["aspirador", "chuveiro", "pug", "betoneira"]; // deve ser o ID da imagem na index.html
+	imagens = ["aspirador", "chuveiro", "pug", "betoneira"]; // deve ser o ID da imagem na index.html
 	repeticaoInimigo = 6; // quantas vezes aparece cada objeto
 	alturaObstaculos = 145;
 	larguraObstaculos = 120;
